@@ -28,8 +28,8 @@
       </feature>
     </config-file>
 
-    <header-file src="src/ios/CTMediaProperties.h"/>
-    <source-file src="src/ios/CTMediaProperties.m"/>
+    <header-file src="src/ios/CTMediaPropertiesPlugin.h"/>
+    <source-file src="src/ios/CTMediaPropertiesPlugin.m"/>
   </platform>
 
 </plugin>
