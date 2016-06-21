@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.commontime.cordova.media-properties"
+        version="1.1.0">
+
+  <name>MediaProperties</name>
+
+  <js-module src="www/media-properties.js" name="MediaProperties">
+    <clobbers target="plugins.mediaproperties" />
+  </js-module>
+
+  <platform name="wp8">
+    <config-file target="config.xml" parent="/*">
+      <feature name="MediaProperties">
+        <param name="wp-package" value="MediaPropertiesPlugin" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/wp8/MediaPropertiesPlugin.cs"/>
+    <framework src="src/wp8/Newtonsoft.Json.dll" custom="true" /> 
+  </platform>
+</plugin>
