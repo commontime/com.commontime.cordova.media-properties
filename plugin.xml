@@ -5,6 +5,8 @@
 
   <name>MediaProperties</name>
 
+  <dependency id="cordova-plugin-file"/>
+
   <js-module src="www/media-properties.js" name="MediaProperties">
     <clobbers target="plugins.mediaproperties" />
   </js-module>
@@ -30,6 +32,8 @@
 
     <header-file src="src/ios/CTMediaPropertiesPlugin.h"/>
     <source-file src="src/ios/CTMediaPropertiesPlugin.m"/>
+
+    <framework src="AVFoundation.framework"/>
   </platform>
 
 </plugin>
