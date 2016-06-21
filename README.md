@@ -17,6 +17,7 @@ function success(properties) {
 }
 
 function error(message) {
+  // handle error with the given message
 }
 
 plugins.mediaproperties.getProperties(success, error, path);
