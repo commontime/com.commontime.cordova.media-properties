@@ -57,9 +57,9 @@
       {
         case AVKeyValueStatusLoaded:
         {
-          NSDictionary* properties = @{ @"duration" : @(asset.duration.value) };
+          NSDictionary* properties = @{ @"duration" : @(asset.duration.value / 1000) };
           
-          CDVPluginResult* result = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR
+          CDVPluginResult* result = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK
                                                   messageAsDictionary: properties];
           
           [self.commandDelegate sendPluginResult: result callbackId: command.callbackId];
