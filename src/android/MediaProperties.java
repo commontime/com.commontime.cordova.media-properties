@@ -25,11 +25,11 @@ public class MediaProperties extends CordovaPlugin {
                     if(mediaInfo != null)
                         callbackContext.success(mediaInfo);
                     else
-                        callbackContext.error("Error getting media info");
+                        callbackContext.error("Error getting media properties");
                 }
                 catch(Exception e)
                 {
-                    callbackContext.error("Error getting media info");
+                    callbackContext.error("Error getting media properties");
                 }
             }
         });
