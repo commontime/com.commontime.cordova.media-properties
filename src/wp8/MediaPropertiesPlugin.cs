@@ -31,6 +31,11 @@ namespace WPCordovaClassLib.Cordova.Commands
         path = (string) parameters[0];
         callbackId = (string) parameters[1];
 
+        if (path.StartsWith("./") || path.StartsWith(".\\"))
+        {
+          path = path.Remove(0, 2);
+        }
+
         GetProperties(path, callbackId);
       }
       catch (Exception e)
