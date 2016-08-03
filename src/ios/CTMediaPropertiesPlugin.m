@@ -30,7 +30,11 @@
       CDVFile* filePlugin = [[CDVFile alloc] init];
       
       [filePlugin pluginInitialize];
-      URL = [CDVFilesystemURL fileSystemURLWithString: path].url;
+      
+      CDVFilesystemURL* cdvURL = [CDVFilesystemURL fileSystemURLWithString: path];
+      NSString* filePath = [filePlugin filesystemPathForURL: cdvURL];
+      
+      URL = [NSURL fileURLWithPath: filePath];
     }
     else
     {
