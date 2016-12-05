@@ -65,7 +65,7 @@ public class MediaProperties extends CordovaPlugin {
                 mPlayer = new MediaPlayer();
                 mPlayer.setDataSource(path);
             }
-            else if (path.contains("user-assets")
+            else if (path.contains("user-assets"))
             {
                 if (!path.contains("www/"))
                 {
