@@ -42,7 +42,7 @@
       NSString *adjustedFilePath = [path stringByReplacingOccurrencesOfString: @"file:///" withString: @""];
       NSString *finalPath = [NSString stringWithFormat :@"file://%@/www/%@", appFolderPath, adjustedFilePath];
       finalPath = [finalPath stringByReplacingOccurrencesOfString: @" " withString: @"%20"];
-      URL = [NSURL fileURLWithPath: finalPath];
+      URL = [NSURL URLWithString: finalPath];
     }
     else
     {
