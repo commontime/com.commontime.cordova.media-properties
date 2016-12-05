@@ -45,7 +45,7 @@ public class MediaProperties extends CordovaPlugin {
 
         try
         {
-            if(path.contains("http://"))
+            if (path.contains("http://"))
             {
                 path = path.replace(" ", "%20");
                 mPlayer = new MediaPlayer();
@@ -65,9 +65,9 @@ public class MediaProperties extends CordovaPlugin {
                 mPlayer = new MediaPlayer();
                 mPlayer.setDataSource(path);
             }
-            else
+            else if (path.contains("user-assets")
             {
-                if(!path.contains("www/"))
+                if (!path.contains("www/"))
                 {
                     path = "www/" + path;
                 }
