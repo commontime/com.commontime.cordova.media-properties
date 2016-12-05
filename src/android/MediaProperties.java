@@ -9,6 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.res.AssetFileDescriptor;
+
 public class MediaProperties extends CordovaPlugin {
 
     @Override
@@ -20,7 +22,7 @@ public class MediaProperties extends CordovaPlugin {
             public void run()
             {
                 try
-                {
+                {                    
                     JSONObject mediaInfo = getMediaInfo(data.getString(0));
                     if(mediaInfo != null)
                         callbackContext.success(mediaInfo);
@@ -43,19 +45,38 @@ public class MediaProperties extends CordovaPlugin {
 
         try
         {
-            if (path.contains("cdvfile://"))
+            if(path.contains("http://"))
+            {
+                path = path.replace(" ", "%20");
+                mPlayer = new MediaPlayer();
+                mPlayer.setDataSource(path);
+            }
+            else if (path.contains("cdvfile://"))
             {
                 CordovaResourceApi resourceApi = webView.getResourceApi();
                 Uri fileURL = resourceApi.remapUri(Uri.parse(path));
                 path = fileURL.getPath();
+                mPlayer = new MediaPlayer();
+                mPlayer.setDataSource(path);
+            }
+            else if (path.contains("file://"))
+            {
+                path = path.replace("file://", "");
+                mPlayer = new MediaPlayer();
+                mPlayer.setDataSource(path);
             }
             else
             {
-                path = path.replace("file://", "");
+                if(!path.contains("www/"))
+                {
+                    path = "www/" + path;
+                }
+                AssetFileDescriptor descriptor = cordova.getActivity().getAssets().openFd(path);
+                mPlayer = new MediaPlayer();
+                mPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
+                descriptor.close();
             }
-
-            mPlayer = new MediaPlayer();
-            mPlayer.setDataSource(path);
+            
             mPlayer.prepare();
             long duration = mPlayer.getDuration();
             mPlayer.release();
