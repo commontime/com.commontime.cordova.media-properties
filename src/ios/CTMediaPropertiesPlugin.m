@@ -36,6 +36,14 @@
       
       URL = [NSURL fileURLWithPath: filePath];
     }
+    else if([path containsString:@"user-assets"])
+    {
+      NSString *appFolderPath = [[NSBundle mainBundle] resourcePath];
+      NSString *adjustedFilePath = [filePath stringByReplacingOccurrencesOfString: @"file:///" withString: @""];
+      NSString *finalPath = [NSString stringWithFormat :@"file://%@/www/%@", appFolderPath, adjustedFilePath];
+      finalPath = [finalPath stringByReplacingOccurrencesOfString: @" " withString: @"%20"];
+      URL = [NSURL fileURLWithPath: finalPath];
+    }
     else
     {
       URL = [NSURL fileURLWithPath: path];
