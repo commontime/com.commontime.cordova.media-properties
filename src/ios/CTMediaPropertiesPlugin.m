@@ -46,7 +46,14 @@
     }
     else
     {
-      URL = [NSURL fileURLWithPath: path];
+      if([path containsString:@"http"])
+      {
+          URL = [NSURL URLWithString: path];
+      }
+      else
+      {
+          URL = [NSURL fileURLWithPath: path];
+      }
     }
     
     if (!URL)
