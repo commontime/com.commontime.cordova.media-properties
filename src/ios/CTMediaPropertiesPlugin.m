@@ -48,6 +48,7 @@
     {
       if([path containsString:@"http"])
       {
+  		  path = [path stringByReplacingOccurrencesOfString: @" " withString: @"%20"];
           URL = [NSURL URLWithString: path];
       }
       else
