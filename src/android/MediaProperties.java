@@ -76,6 +76,11 @@ public class MediaProperties extends CordovaPlugin {
                 mPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
                 descriptor.close();
             }
+            else // Nothing special to do with any other path so don't alter
+            {
+                mPlayer = new MediaPlayer();
+                mPlayer.setDataSource(path);
+            }
             
             mPlayer.prepare();
             long duration = mPlayer.getDuration();

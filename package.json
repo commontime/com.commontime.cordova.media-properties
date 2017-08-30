@@ -1,6 +1,6 @@
 {
   "name": "com.commontime.cordova.media-properties",
-  "version": "1.2.12",
+  "version": "1.2.13",
   "description": "Plugin to get the properties of media items.",
   "main": "index.js",
   "scripts": {
