@@ -5,7 +5,7 @@
 
   <name>MediaProperties</name>
 
-  <dependency id="cordova-plugin-file"/>
+  <dependency id="cordova-plugin-file" version="^4.0.0" />
 
   <js-module src="www/media-properties.js" name="MediaProperties">
     <clobbers target="plugins.mediaproperties" />
